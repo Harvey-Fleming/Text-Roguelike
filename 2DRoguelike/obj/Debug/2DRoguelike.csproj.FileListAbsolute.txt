@@ -5,3 +5,10 @@ C:\Users\Harvey\source\repos\2DRoguelike\2DRoguelike\obj\Debug\2DRoguelike.cspro
 C:\Users\Harvey\source\repos\2DRoguelike\2DRoguelike\obj\Debug\2DRoguelike.csproj.CoreCompileInputs.cache
 C:\Users\Harvey\source\repos\2DRoguelike\2DRoguelike\obj\Debug\2DRoguelike.exe
 C:\Users\Harvey\source\repos\2DRoguelike\2DRoguelike\obj\Debug\2DRoguelike.pdb
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\bin\Debug\2DRoguelike.exe.config
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\bin\Debug\2DRoguelike.exe
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\bin\Debug\2DRoguelike.pdb
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\obj\Debug\2DRoguelike.csproj.AssemblyReference.cache
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\obj\Debug\2DRoguelike.csproj.CoreCompileInputs.cache
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\obj\Debug\2DRoguelike.exe
+C:\Users\Harvey\source\repos\2DRoguelike\Text-Roguelike\2DRoguelike\obj\Debug\2DRoguelike.pdb
