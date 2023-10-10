@@ -5,16 +5,20 @@ namespace _2DRoguelike
     class Weapon : Tile
     {
         public enum WeaponType { Dagger, Sword, Bow }
-        public WeaponType weaponType { get; private set; }
-        public int upgradeCost { get; private set; }
-        public int damage { get; private set; }
-        public int durability { get; private set; }
+        private WeaponType Type;
+        private int upgradeCost = 5;
+        private int damage;
+        private int durability;
+
+        internal WeaponType weaponType { get => Type; set => Type = value; }
+        public int UpgradeCost { get => upgradeCost; set => upgradeCost = value; }
+        public int Damage { get => damage; set => damage = value; }
+        public int Durability { get => durability; set => durability = value; }
 
         public Weapon()
         {
             symbol = "W";
             GenerateStats();
-
         }
 
         //Generate Random weapon stats when one is spawned on a tile
@@ -38,6 +42,13 @@ namespace _2DRoguelike
                     damage = random.Next(2, 6);
                     break;
             }
+        }
+
+        public void UpgradeWeapon()
+        {
+            upgradeCost += 5;
+            durability += 2;
+            damage += 1;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace _2DRoguelike
+﻿using System;
+
+namespace _2DRoguelike
 {
     class Player : Tile
     {
@@ -27,11 +29,14 @@
         #region - Player Combat
         public void OnAttack(Monster monster)
         {
-            monster.OnTakeDamage(weapon.damage);
+            Console.WriteLine("Player Has Attacked");
+            monster.OnTakeDamage(weapon.Damage);
+            weapon.Durability--;
         }
 
         public void OnTakeDamage(int damageTaken)
         {
+            Console.WriteLine("Player Has Taken Damage");
             health -= damageTaken;
         }
         #endregion

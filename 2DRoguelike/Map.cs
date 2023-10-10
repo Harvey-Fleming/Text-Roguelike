@@ -17,6 +17,7 @@ namespace _2DRoguelike
         }
 
         internal Tile[,] MapTiles { get => mapTiles; set => mapTiles = value; }
+        internal Player PlayerTile { get => playerTile; set => playerTile = value; }
 
         public void PopulateGrid(Tile[,] GridToFill)
         {
@@ -32,7 +33,6 @@ namespace _2DRoguelike
                 for (int j = 0; j < Gridy; j++)
                 {
                     randTileNum = random.Next(1, 5);
-
                     switch (randTileNum)
                     {
                         case (1):
@@ -42,7 +42,7 @@ namespace _2DRoguelike
                             randtile = new Potion();
                             break;
                         case (3):
-                            randtile = new Monster(0, 100, 10, 30);
+                            randtile = new Monster();
                             break;
                         case (4):
                             randtile = new Weapon();
@@ -63,37 +63,37 @@ namespace _2DRoguelike
             gridtoFill[ranx, rany] = playerTile;
         }
 
-        public void MovePlayer(Direction direction)
+        public Tile MovePlayer(Direction direction)
         {
             if(CheckMovement(direction))
             {
-                switch (direction)
-                {
-                    case Direction.up:
-                        playerTile.YPosition += 1;
-                        break;
-                    case Direction.down:
-                        playerTile.YPosition -= 1;
-                        break;
-                    case Direction.left:
-                        playerTile.XPosition -= 1;
-                        break;
-                    case Direction.right:
-                        playerTile.XPosition += 1;
-                        break;
-                }
-
-                //TODO - Ask for direction
-                //Check if player can go that Direction
-                //If so, change player position and check type of tile.
-                //Run Code for individual tile type. Fight, heal, find weapon. etc
+                Console.Write(NextTile());
+                return NextTile();
+            }
+            {
+                return playerTile;
             }
 
             bool CheckMovement(Direction directiontomove)
             {
+                switch (direction)
+                {
+                    case Direction.up:
+                        return (playerTile.YPosition -= 1) <= MapTiles.GetLength(1);
+                    case Direction.down:
+                        return (playerTile.YPosition += 1) <= MapTiles.GetLength(1);
+                    case Direction.left:
+                        return (playerTile.XPosition -= 1) <= MapTiles.GetLength(0);
+                    case Direction.right:
+                        return (playerTile.XPosition += 1) <= MapTiles.GetLength(0);
+                    default:
+                        return false;
+                }
+            }
 
-
-                return true;
+            Tile NextTile()
+            {
+            return MapTiles[playerTile.XPosition, playerTile.YPosition];
             }
         }
     }

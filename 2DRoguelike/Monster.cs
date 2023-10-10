@@ -4,37 +4,45 @@ namespace _2DRoguelike
 {
     class Monster : Tile
     {
-        public enum MonsterType { Zombie, Skeleton, Spider }
-        private MonsterType monsterType;
-        public int health { get; private set; }
-        public int goldDrop { get; private set; }
-        public int attack { get; private set; }
+        Random random = new Random();
+        public enum MType { Zombie, Skeleton, Spider }
+        private MType monsterType;
+        private int health;
+        private int goldDrop;
+        private int attack;
 
-        public Monster(MonsterType type, int health, int goldDrop, int attack)
+        internal MType MonsterType { get => monsterType; set => monsterType = value; }
+        public int Health { get => health; set => health = value; }
+        public int GoldDrop { get => goldDrop; set => goldDrop = value; }
+        public int Attack { get => attack; set => attack = value; }
+
+        public Monster()
         {
             symbol = "M";
-            this.monsterType = type;
-            this.health = health;
-            this.goldDrop = goldDrop;
-            this.attack = attack;
+            this.monsterType = GetRandMonsterType();
+            this.health = random.Next(1,21);
+            this.goldDrop = random.Next(1,8);
+            this.attack = random.Next(1, 10);
         }
 
         //Generate Random Monster Type
-        public MonsterType GetRandMonsterType()
+        public MType GetRandMonsterType()
         {
-            Random random = new Random();
+            
             int type = random.Next(0, 3);
-            return (MonsterType)type;
+            return (MType)type;
         }
 
         #region - Monster Combat
         public void OnAttack(Player player)
         {
+            Console.WriteLine("Monster has Attacked");
             player.OnTakeDamage(attack);
         }
 
         public void OnTakeDamage(int damageTaken)
         {
+            Console.WriteLine("Monster has taken damage");
             health -= damageTaken;
         }
         #endregion

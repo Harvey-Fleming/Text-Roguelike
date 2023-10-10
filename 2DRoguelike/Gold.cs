@@ -4,13 +4,16 @@ namespace _2DRoguelike
 {
     class Gold : Tile
     {
-        public int gold { get; private set; }
+        Random random = new Random();
+        private int gold;
 
         public Gold()
         {
             symbol = "G";
-            Random random = new Random();
+            
             gold = random.Next(0, 10);
         }
+
+        public int GoldAmount { get => gold; set => gold = value; }
     }
 }
