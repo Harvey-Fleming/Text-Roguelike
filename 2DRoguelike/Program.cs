@@ -14,17 +14,13 @@ namespace _2DRoguelike
             //Input for How big the map should be
             Console.Write("Grid X Size?: \n");
             int xSize = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Grid Y Size?: \n");
             int ySize = Convert.ToInt32(Console.ReadLine());
+
             GameEngine gameEngine = new GameEngine(new Map(new Tile[xSize, ySize]));
 
-            gameEngine.DisplayGrid();
 
-
-
-            //TODO
-            //Monster Combat
-            //Find Weapon
             //How to check for wrong input when asking for user input - Generates error Currently
 
         }

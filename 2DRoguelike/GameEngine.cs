@@ -15,6 +15,7 @@ namespace _2DRoguelike
         {
             this.map = map;
             playerTile = map.PlayerTile;
+            DisplayGrid();
         }
 
         internal Map Map { get => map; set => map = value; }

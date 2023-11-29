@@ -4,6 +4,7 @@ namespace _2DRoguelike
 {
     class Weapon : Tile
     {
+        Random random = new Random();
         public enum WeaponType { Dagger, Sword, Bow }
         private WeaponType Type;
         private int upgradeCost = 5;
@@ -24,7 +25,6 @@ namespace _2DRoguelike
         //Generate Random weapon stats when one is spawned on a tile
         void GenerateStats()
         {
-            Random random = new Random();
             int ranweaponInt = random.Next(0, 3);
             weaponType = (WeaponType)ranweaponInt;
             switch (weaponType)

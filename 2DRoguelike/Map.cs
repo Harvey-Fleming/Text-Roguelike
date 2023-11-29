@@ -4,13 +4,14 @@ namespace _2DRoguelike
 {
     class Map
     {
+        Random random = new Random();
         public enum Direction {up, down, left, right };
         private Tile[,] mapTiles;
         private Player playerTile;
-        Random random = new Random();
-
+        
         public Map(Tile[,] mapTiles)
         {
+
             this.mapTiles = mapTiles;
 
             PopulateGrid(mapTiles);
